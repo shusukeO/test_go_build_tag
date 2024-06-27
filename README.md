@@ -21,13 +21,22 @@
 - `go run -tags jp main.go` で実行すると、`jp` タグが有効になる。
 - `go run -tags en main.go` で実行すると、`en` タグが有効になる。
 
+#### 実行結果
+
+ビルドタグによって、出力される文字列が変わる。
+
+- `jp` タグが有効な場合
+  - `こんにちは`
+- `en` タグが有効な場合
+  - `Hello`
+
 #### settings.json の設定
 
-以下を追加しないと、静的解析がうまくいかない。
+以下を追加しないと、静的解析がうまくいかない。ただし、SayHello() 関数名の重複はエラーが出る。
 
 ```json
  "go.toolsEnvVars": {
-    "GOFLAGS": ["-tags=en", "-tags=jp"]
+    "GOFLAGS": ["-tags=jp,en"]
   },
 ```
 
